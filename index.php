@@ -1,8 +1,8 @@
 <?php
     session_start();
     include_once('./components/functions.php');
-    if (isset($_POST['loginSubmit']) && userExists($_POST['loginMail'], $_POST['loginPsw'])) {
-        createUserData($_POST['loginMail'], $_POST['loginPsw']);
+    if (isset($_POST['loginSubmit']) && userExists($_POST['loginPseudo'], $_POST['loginPsw'])) {
+        createUserData($_POST['loginPseudo'], $_POST['loginPsw']);
     }
 ?>
 

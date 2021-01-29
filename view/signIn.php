@@ -1,3 +1,9 @@
+<?php
+if (!empty($_POST["submitNewUser"])) {
+    createNewUser($_POST["newUserPseudo"],$_POST["newUserEmail"], $_POST['newUserPsw']);
+}
+?>
+
 <nav>
     <a href="./index.php">Log in</a>
 </nav>

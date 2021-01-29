@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_SESSION['accountType'])) {
+if (!isset($_SESSION['id'])) {
     if (!empty($_GET['page'])) {
     include("./view/signIn.php");
 }else {
