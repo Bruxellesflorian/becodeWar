@@ -64,3 +64,9 @@ body > div.flexMain > div:nth-child(1)>div{
     justify-content: center;
     align-items: center;
 }
+
+.editingForm{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}

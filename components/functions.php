@@ -31,5 +31,27 @@ function createNewUser($pseudo, $email, $psw)
         $query->execute([$pseudo, $email, $psw]);
     }
 
+    function ressourcesSecond () {
+
+    }
+
+function creatUserAvatar(){
+    
+};
+function creatUserClan(){
+    
+};
+function   creatUserRessources(){
+    
+};
+function  creatUserPosition(){
+    
+};
+function  creatUserAttack(){
+    
+};
+function   createUserDefense(){
+    
+};
 
   ?>
