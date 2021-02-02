@@ -86,7 +86,7 @@ class ress {
   }
 let buy_cafe = new ress(15,0,0,0,1,0,0,0)
 let buy_cafetiere = new ress(60,30,0,0,1,0,0,0)
-let buy_percolateur = new ress(100,100,0,0,1,0,0,0)
+let buy_percolateur = new ress(300,200,0,0,1,0,0,0)
 let buy_ecran = new ress(0,60,0,0,0,1,0,0)
 let buy_ram = new ress(500,500,100,0,0,1,0,0)
 let buy_IDE = new ress(1000,1000,500,500,0,1,0,0)
@@ -199,88 +199,64 @@ const PHP = document.getElementById("PHP")
 const Python = document.getElementById("Python")
 
 let arrayMOD = [{
-        name : "Café",
         variable: cafe,
         content: "cafe",
         apFu: buy_cafe,
-        lvlcontent: 1,
     },
     {
-        name : "Cafetière",
         variable: italienne,
         content: "italienne",
         apFu: buy_cafetiere,
-        lvlcontent: 2
     },
     {
-        name : "Percolateur",
         variable: percolateur,
         content: "percolateur",
         apFu: buy_percolateur,
-        lvlcontent: 3
     },
     {
-        name : "écran",
         variable: ecran,
         content: "ecran",
         apFu: buy_ecran,
-        lvlcontent: 1
     },
     {
-        name : "Ram",
         variable: ram,
         content: "ram",
         apFu: buy_ram,
-        lvlcontent: 2
     },
     {
-        name : "IDE",
         variable: IDE,
         content: "IDE",
         apFu: buy_IDE,
-        lvlcontent: 3
     },
     {
-        name : "Figma",
         variable: Figma,
         content: "Figma",
         apFu: buy_Figma,
-        lvlcontent: 1
     },
     { 
-        name : "Adobe",
         variable: Adobe,
         content: "Adobe",
         apFu: buy_Adobe,
-        lvlcontent: 2
     },
     {
-        name : "CSS",
         variable: CSS,
         content: "CSS",
         apFu: buy_CSS,
-        lvlcontent: 3
     },
     {
-        name : "node",
         variable: node,
         content: "node",
         apFu: buy_node,
-        lvlcontent: 1
     },
     {
-        name : "PHP",
         variable: PHP,
         content: "PHP",
         apFu: buy_PHP,
-        lvlcontent: 2
     },
     {
-        name : "Python",
         variable: Python,
         content: "Python",
         apFu: buy_Python,
-        lvlcontent: 3
     },
 ]
 const bullAide = document.getElementById("bullAide")
@@ -299,11 +275,6 @@ document.body.addEventListener("click", function (e) {
         }
     }
 })
-function buylvl(x,y){
-    if(x <= y){
-
-    }
-}
 anulatorBuy()
 function anulatorBuy(){
     for(let i = 0; i<3;i++){
