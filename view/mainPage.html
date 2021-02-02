@@ -21,46 +21,119 @@
                 </div>
             </div>
         </div>
-        <div class="flexNav">Productivity<div class="barreProgress">0/100</div>
+        <div class="flexNav">Productivity<div class="barreProgress ">
+                <div class="flexBarre">
+                    <div class="barreProgress_Productivity" id="barreProgress_Productivity"><span
+                            id="statutProductivity"></span></div>
+                </div>
+            </div>
         </div>
-        <div class="flexNav">Créativity<div class="barreProgress">0/100</div>
+        <div class="flexNav">Créativity<div class="barreProgress ">
+                <div class="flexBarre">
+                    <div class="barreProgress_Creativity" id="barreProgress_Creativity"><span
+                            id="statutCreativity"></span></div>
+                </div>
+            </div>
         </div>
-        <div class="flexNav">Backend<div class="barreProgress">0/100</div>
+        <div class="flexNav">Backend<div class="barreProgress ">
+                <div class="flexBarre">
+                    <div class="barreProgress_Backend" id="barreProgress_Backend"><span id="statutBackend"></span></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="flexMain">
         <div class="box13">
             <p>Technologies</p>
-            <div>Energie<div><i  id="deroulEnergy" class="fas fa-caret-left fa-2x"></i></div>
+            <div>Energie<div><i id="deroulEnergy" class="fas fa-caret-left fa-2x"></i></div>
             </div>
             <div class="flexColumn deroulZero " id="energyBox">
-                <div><span>café</span> <button>Buy</button></div>
-                <div><span>Cafetière italienne</span> <button>Buy</button></div>
-                <div><span>percolateur</span> <button>Buy</button></div>
+                <table>
+                    <tr>
+                        <td>café</td>
+                        <td>15E</td>
+                        <td><button id="cafe">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>Cafetière</td>
+                        <td>60E + 30P</td>
+                        <td><button id="italienne">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>percolateur</td>
+                        <td>300E + 200P</td>
+                        <td><button id="percolateur">Buy</button></td>
+                    </tr>
+                </table>
             </div>
 
             <div>Productivity <div><i id="deroulProductivity" class="fas fa-caret-left fa-2x"></i></div>
             </div>
             <div class="flexColumn deroulZero " id="productivityBox">
-                <div><span>écran</span> <button>Buy</button></div>
-                <div><span>Ram</span> <button>Buy</button></div>
-                <div><span>IDE</span> <button>Buy</button></div>
+                <table>
+                    <tr>
+                        <td>écran</td>
+                        <td>15E</td>
+                        <td><button id="ecran">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ram</td>
+                        <td>60E + 30P</td>
+                        <td><button id="ram">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>IDE</td>
+                        <td>300E + 200P</td>
+                        <td><button id="IDE">Buy</button></td>
+                    </tr>
+                </table>
             </div>
             <div>Créativity <div><i id="deroulCreativity" class="fas fa-caret-left fa-2x"></i></div>
             </div>
             <div class="flexColumn deroulZero " id="creativityBox">
-                <div><span>Figma</span> <button>Buy</button></div>
-                <div><span>Adobe</span> <button>Buy</button></div>
-                <div><span>CSS</span> <button>Buy</button></div>
+                <table>
+                    <tr>
+                        <td>Figma</td>
+                        <td>15E</td>
+                        <td><button id="ecran">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>Adobe</td>
+                        <td>60E + 30P</td>
+                        <td><button id="ram">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>CSS</td>
+                        <td>300E + 200P</td>
+                        <td><button id="IDE">Buy</button></td>
+                    </tr>
+                </table>
             </div>
             <div>Backend <div><i id="deroulBackend" class="fas fa-caret-left fa-2x"></i></div>
             </div>
             <div class="flexColumn deroulZero " id="backendBox">
-                <div><span>node.js</span> <button>Buy</button></div>
-                <div><span>PHP</span> <button>Buy</button></div>
-                <div><span>Python</span> <button>Buy</button></div>
+                <table>
+                    <tr>
+                        <td>node.js</td>
+                        <td>15E</td>
+                        <td><button id="ecran">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td>60E + 30P</td>
+                        <td><button id="ram">Buy</button></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>300E + 200P</td>
+                        <td><button id="IDE">Buy</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div>Bulle d'aide<div id="bullAide"></div>
             </div>
         </div>
+
         <div class="boxMap">
             <div id="map">
             </div>
@@ -73,4 +146,3 @@
 </html>
 <script src="ressourceJS.js"></script>
 <script src="map.js"></script>
-<script src="deroul.js"></script>
