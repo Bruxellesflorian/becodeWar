@@ -297,10 +297,6 @@ const skyblog = document.getElementById("skyblog")
 const github = document.getElementById("github")
 const la_nasa = document.getElementById("la_nasa")  
 
-
-
-
-
 let arrayMOD = [{
         variable: cafe,
         content: "cafe",
@@ -472,6 +468,11 @@ document.body.addEventListener("mouseover", function (e) {
     for (let i = 0; i < arrayMOD.length; i++) {
         if (e.target == arrayMOD[i].variable) {
             bullAide.innerHTML = arrayMOD[i].content
+        }
+    }
+    for (let i = 0; i < arraySTOCK.length; i++) {
+        if (e.target == arraySTOCK[i].variable) {
+            bullAide.innerHTML = arraySTOCK[i].content
         }
     }
 })
