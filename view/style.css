@@ -8,6 +8,9 @@ html{
 .flexBarre{
     display: flex;
 }
+.alignText{
+    text-align: center;
+}
 .styleNav{
     background-color: rgb(163, 163, 238);
     padding: 10px;

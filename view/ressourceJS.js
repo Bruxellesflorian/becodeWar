@@ -1,8 +1,34 @@
 
+    //Pour la base de donnée
+    //Donner à recup pour l'algo JS 
+    //___________________table user_Ressource____________________________
+    // bdd Energy       = energy,        lvlenergy ,         maxEnergy
+    // bdd productivity = productivity,  lvlProductivity,    maxProductivity 
+    // bdd creativity   = creativity,    lvlcreativity ,     maxcreativity
+    // bdd backend      = backend,       lvlenergy ,         maxbackend
+    //
+    //___________________Table de user_techno____________________________
+    // cafe         = false => (0 dans la table arrayMOD.achat)
+    // italienne    = false => (0)
+    // percolateur  = false => (0)
+
+    // ecran        = false => (0)
+    // ram          = false => (0)
+    // IDE          = false => (0)
+
+    // Figma        = false => (0)
+    // Adobe        = false => (0)
+    // CSS          = false => (0)
+
+    // Node         = false => (0)
+    // PHP          = false => (0)
+    // Python       = false => (0)
+
     let energy = 0, lvlenergy = 1 , maxEnergy = 100;
     let productivity = 0,lvlProductivity =1 , maxProductivity = 100;
     let creativity = 0, lvlcreativity = 0, maxcreativity = 100;
     let backend = 0, lvlbackend = 0, maxbackend = 100;
+
 
 
     const statutEnergy = document.getElementById("statutEnergy")
@@ -16,6 +42,14 @@
 
     const statutBackend = document.getElementById("statutBackend")
     const barreProgress_Backend = document.getElementById("barreProgress_Backend")
+
+    const ENAffichePS = document.getElementById("EN")
+    const PRAffichePS = document.getElementById("PR")
+    const CRAffichePS = document.getElementById("CR")
+    const BEAffichePS = document.getElementById("BE")
+    function ressPsecAffiche(x,y){
+        x.innerHTML = y
+    }
 
 function lvlofressource(x){
     return 1 * x
@@ -68,7 +102,10 @@ let intervalRessource = setInterval(function(){
     max(productivity,maxProductivity)
     max(creativity,maxcreativity)
     max(backend,maxbackend)
-
+    ressPsecAffiche(ENAffichePS,lvlenergy)
+    ressPsecAffiche(PRAffichePS,lvlProductivity)
+    ressPsecAffiche(CRAffichePS,lvlcreativity)
+    ressPsecAffiche(BEAffichePS,lvlbackend)
 }, 100);
 
 class ress {
@@ -80,8 +117,7 @@ class ress {
       this.lvlnrj = lvlnrj;
       this.lvlprod = lvlprod;
       this.lvlcrea = lvlcrea;
-      this.lvlback = lvlback;
-      
+      this.lvlback = lvlback;  
     }
   }
 let buy_cafe = new ress(15,0,0,0,1,0,0,0)
@@ -95,20 +131,9 @@ let buy_Adobe = new ress(1000,500,500,0,0,0,1,0)
 let buy_CSS = new ress(0,0,0,0,0,0,1,0)
 let buy_node = new ress(0,0,0,0,0,0,0,1)
 let buy_PHP = new ress(0,0,0,0,0,0,0,1)
-let buy_Python = new ress(0,0,0,0,0,0,0,1)
+let buy_Python = new ress(10,0,0,0,0,0,0,1)
 
-function buybuy(x){
-    if(energy >= x.nrj && productivity >= x.prod && creativity >= x.crea && backend >= x.back ){
-        energy -= x.nrj
-        productivity -= x.prod
-        creativity -= x.crea
-        backend -= x.back
-        lvlenergy += x.lvlnrj
-        lvlProductivity += x.lvlprod
-        lvlcreativity += x.lvlcrea
-        lvlbackend += x.lvlback
-    }
-}
+
 
 // _________________________DEROULE MENU___________________
 
@@ -199,66 +224,85 @@ const PHP = document.getElementById("PHP")
 const Python = document.getElementById("Python")
 
 let arrayMOD = [{
-        variable: cafe,
-        content: "cafe",
-        apFu: buy_cafe,
-    },
-    {
-        variable: italienne,
-        content: "italienne",
-        apFu: buy_cafetiere,
-    },
-    {
-        variable: percolateur,
-        content: "percolateur",
-        apFu: buy_percolateur,
-    },
-    {
-        variable: ecran,
-        content: "ecran",
-        apFu: buy_ecran,
-    },
-    {
-        variable: ram,
-        content: "ram",
-        apFu: buy_ram,
-    },
-    {
-        variable: IDE,
-        content: "IDE",
-        apFu: buy_IDE,
-    },
-    {
-        variable: Figma,
-        content: "Figma",
-        apFu: buy_Figma,
-    },
-    { 
-        variable: Adobe,
-        content: "Adobe",
-        apFu: buy_Adobe,
-    },
-    {
-        variable: CSS,
-        content: "CSS",
-        apFu: buy_CSS,
-    },
-    {
-        variable: node,
-        content: "node",
-        apFu: buy_node,
-    },
-    {
-        variable: PHP,
-        content: "PHP",
-        apFu: buy_PHP,
-    },
-    {
-        variable: Python,
-        content: "Python",
-        apFu: buy_Python,
-    },
+    variable: cafe,
+    content: "cafe",
+    apFu: buy_cafe,
+    achat: 0,
+},
+{
+    variable: italienne,
+    content: "italienne",
+    apFu: buy_cafetiere,
+    achat: 0,
+    
+},
+{
+    variable: percolateur,
+    content: "percolateur",
+    apFu: buy_percolateur,
+    achat: 0,
+    
+},
+{
+    variable: ecran,
+    content: "ecran",
+    apFu: buy_ecran,
+    achat: 0,
+    
+},
+{
+    variable: ram,
+    content: "ram",
+    apFu: buy_ram,
+    achat: 0,
+    
+},
+{
+    variable: IDE,
+    content: "IDE",
+    apFu: buy_IDE,
+    achat: 0,
+},
+{
+    
+    variable: Figma,
+    content: "Figma",
+    apFu: buy_Figma,
+    achat: 0,
+},
+{ 
+    variable: Adobe,
+    content: "Adobe",
+    apFu: buy_Adobe,
+    achat: 0,
+},
+{
+    variable: CSS,
+    content: "CSS",
+    apFu: buy_CSS,
+    achat: 0,  
+},
+{
+    variable: node,
+    content: "node",
+    apFu: buy_node,
+    achat: 0,
+},
+{
+    variable: PHP,
+    content: "PHP",
+    apFu: buy_PHP,
+    achat: 0,
+},
+{
+    variable: Python,
+    content: "Python",
+    apFu: buy_Python,
+    achat: 0,
+},
 ]
+
+
 const bullAide = document.getElementById("bullAide")
 document.body.addEventListener("mouseover", function (e) {
     for (let i = 0; i < arrayMOD.length; i++) {
@@ -267,24 +311,46 @@ document.body.addEventListener("mouseover", function (e) {
         }
     }
 })
+                // _______________SECTION ACHAT_______________//
+
 document.body.addEventListener("click", function (e) {
     for (let i = 0; i < arrayMOD.length; i++) {
+        function buybuy(x,y){
+            if(energy >= x.nrj && productivity >= x.prod && creativity >= x.crea && backend >= x.back && y == 0){
+                energy -= x.nrj
+                productivity -= x.prod
+                creativity -= x.crea
+                backend -= x.back
+                lvlenergy += x.lvlnrj
+                lvlProductivity += x.lvlprod
+                lvlcreativity += x.lvlcrea
+                lvlbackend += x.lvlback  
+                arrayMOD[i].achat++
+            }
+        }
         if (e.target == arrayMOD[i].variable) {
-            buybuy(arrayMOD[i].apFu)
-            anulatorBuy()
+                    buybuy(arrayMOD[i].apFu,arrayMOD[i].achat)
+                    anulatorBuy()
         }
     }
 })
-anulatorBuy()
 function anulatorBuy(){
-    for(let i = 0; i<3;i++){
-        let stock = arrayMOD[i].content;
-        if(lvlenergy >= i+2){
+    for(let i=0; i<arrayMOD.length;i++){
+        if(arrayMOD[i].achat == 1){
+            document.querySelector("#"+arrayMOD[i].content).style.display ="none"
             delete arrayMOD[i].apFu.nrj;
-            document.querySelector("#"+stock).style.display ="none"
+            delete arrayMOD[i].apFu.prod;
+            delete arrayMOD[i].apFu.crea;
+            delete arrayMOD[i].apFu.back;
+            console.log(arrayMOD[i].content,arrayMOD[i].achat);
         }
-    }
+    }   
 }
+anulatorBuy()
+
+
+
+
 
 
 
