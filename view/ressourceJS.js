@@ -35,6 +35,8 @@ let creativity = 0,
 let backend = 0,
     lvlbackend = 0,
     maxbackend = 100;
+let stockEN = 0, stockPR = 0,stockCR = 0,stockBE = 0;   
+
 
 
 const statutEnergy = document.getElementById("statutEnergy")
@@ -53,6 +55,12 @@ const ENAffichePS = document.getElementById("EN")
 const PRAffichePS = document.getElementById("PR")
 const CRAffichePS = document.getElementById("CR")
 const BEAffichePS = document.getElementById("BE")
+
+const ENAfficheStock = document.getElementById("ENS")
+const PRAfficheStock = document.getElementById("PRS")
+const CRAfficheStock = document.getElementById("CRS")
+const BEAfficheStock = document.getElementById("BES")
+
 
 function ressPsecAffiche(x, y) {
     x.innerHTML = y
@@ -120,7 +128,13 @@ let intervalRessource = setInterval(function () {
     ressPsecAffiche(PRAffichePS, lvlProductivity)
     ressPsecAffiche(CRAffichePS, lvlcreativity)
     ressPsecAffiche(BEAffichePS, lvlbackend)
-}, 100);
+
+    ressPsecAffiche(ENAfficheStock, lvlbackend)
+    ressPsecAffiche(PRAfficheStock, lvlbackend)
+    ressPsecAffiche(CRAfficheStock, lvlbackend)
+    ressPsecAffiche(BEAfficheStock, lvlbackend)
+
+}, 10);
 
 class ress {
     constructor(nrj, prod, crea, back, lvlnrj, lvlprod, lvlcrea, lvlback) {
@@ -161,20 +175,20 @@ class stock {
 }
 
 let buy_gauffre = new stock (100,100,0,0,500,0,0,0)
-let buy_cookies = new stock (100,100,0,0,500,0,0,0)
+let buy_cookies = new stock (600,500,0,0,500,0,0,0)
 let buy_raclette = new stock (100,100,0,0,500,0,0,0)
 
-let buy_usbkey = new stock (100,100,0,0,500,0,0,0)
-let buy_cloud = new stock (100,100,0,0,500,0,0,0)
-let buy_disqueDurExterne = new stock (100,100,0,0,500,0,0,0)
+let buy_usbkey = new stock (100,100,0,0,0,500,0,0)
+let buy_cloud = new stock (100,100,0,0,0,500,0,0)
+let buy_disqueDurExterne = new stock (100,100,0,0,0,500,0,0)
 
-let buy_pilluleBleu = new stock (100,100,0,0,500,0,0,0)
-let buy_pillulerouge = new stock (100,100,0,0,500,0,0,0)
-let buy_elonMusk = new stock (100,100,0,0,500,0,0,0)
+let buy_pilluleBleu = new stock (500,100,0,0,0,0,500,0)
+let buy_pillulerouge = new stock (100,100,0,0,500,0,500,0)
+let buy_elonMusk = new stock (100,100,0,0,500,0,500,0)
 
-let buy_skyblog = new stock (100,100,0,0,500,0,0,0)
-let buy_github = new stock (100,100,0,0,500,0,0,0)
-let buy_la_nasa = new stock (100,100,0,0,500,0,0,0)
+let buy_skyblog = new stock (100,100,0,0,0,0,0,500)
+let buy_github = new stock (100,100,0,0,0,0,0,500)
+let buy_la_nasa = new stock (100,100,0,0,0,0,0,500)
 
 // _________________________DEROULE MENU___________________
 
@@ -233,10 +247,11 @@ moveDeroul(bolBoxEnergy, energyBox, butDeroulEnergy)
 moveDeroul(bolBoxProductivity, productivityBox, butDeroulProductivity)
 moveDeroul(bolBoxCreativity, creativityBox, butDeroulCreativity)
 moveDeroul(bolBoxBackend, backendBox, butDeroulBackend)
-moveDeroul(bolBoxStockEN, StockENBox, butDeroulStockEN)
-moveDeroul(bolBoxStockPR, StockPRBox, butDeroulStockPR)
-moveDeroul(bolBoxStockCR, StockCRBox, butDeroulStockCR)
-moveDeroul(bolBoxStockBE, StockBEBox, butDeroulStockBE)
+// moveDeroul(bolBoxStockEN, StockENBox, butDeroulStockEN)
+// moveDeroul(bolBoxStockPR, StockPRBox, butDeroulStockPR)
+// moveDeroul(bolBoxStockCR, StockCRBox, butDeroulStockCR)
+// moveDeroul(bolBoxStockBE, StockBEBox, butDeroulStockBE)
+ // __________________________________________________________________FAIRE UNE FUNCTION POUR LE LVL DES STOCK 
 const listDeroul = [{
     bouton: butDeroulEnergy,
     bol:  bolBoxEnergy,
@@ -296,6 +311,9 @@ const elonMusk = document.getElementById("elonMusk")
 const skyblog = document.getElementById("skyblog")
 const github = document.getElementById("github")
 const la_nasa = document.getElementById("la_nasa")  
+// ______________________________________________
+
+// ______________________________________________
 
 let arrayMOD = [{
         variable: cafe,
@@ -463,6 +481,7 @@ let arraySTOCK = [
         achat: 0,
     }     
 ]
+
 const bullAide = document.getElementById("bullAide")
 document.body.addEventListener("mouseover", function (e) {
     for (let i = 0; i < arrayMOD.length; i++) {
@@ -550,7 +569,7 @@ function anulatorBuy(x,y,a,b,c,d) {
             delete b;
             delete c;
             delete d;
-            console.log(y, x);
+            // console.log(y, x);
         }
     }
 }
@@ -562,3 +581,25 @@ for(let mep =0; mep<arraySTOCK.length;mep++){
     anulatorBuy(arraySTOCK[mep].achat,arraySTOCK[mep].content,arraySTOCK[mep].apFu.nrj,arraySTOCK[mep].apFu.prod,arraySTOCK[mep].apFu.crea,arraySTOCK[mep].apFu.back)
     //cette boucle et cette fonction permettent d'enlever tout les buttons et les classes(technologies) qui on déjà été acheté par le joueur // QUAND IL OUVRE SA SESSION //
 }
+
+for(let i =0; i<arrayMOD.length;i++){
+    //Permet d'avoir un update des techno à la connection du USER 
+    if(arrayMOD[i].achat == 1){
+        lvlenergy += arrayMOD[i].apFu.lvlnrj
+        lvlProductivity += arrayMOD[i].apFu.lvlprod
+        lvlcreativity += arrayMOD[i].apFu.lvlcrea
+        lvlbackend += arrayMOD[i].apFu.lvlback
+    }
+}
+for(let i =0; i<arraySTOCK.length;i++){
+    //Permet d'avoir un update  a la connection du USER 
+    if(arraySTOCK[i].achat == 1){
+        maxEnergy += arraySTOCK[i].apFu.StockNrj
+        maxProductivity += arraySTOCK[i].apFu.stockProd
+        maxcreativity += arraySTOCK[i].apFu.StockCrea
+        maxbackend += arraySTOCK[i].apFu.stockBack
+    }
+}
+
+
+

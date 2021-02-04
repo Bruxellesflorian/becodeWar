@@ -19,7 +19,7 @@ html{
 .barreProgress{
     margin-left: 5px;
     background-color: white;
-    width: 50px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,6 +104,20 @@ body > div.flexMain > div:nth-child(1)>div>div{
     transition-duration: 1s;
 }
  /* _________________________Bull d'aide______________________ */
+
+
+
+            /* RIGHT BOX */
+ .colorRightBox>div{
+    background-color: rgb(157, 191, 255);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px ;
+ }
+ .colorRightBox>div>div{
+     text-align: center;
+ }
 
 
 
