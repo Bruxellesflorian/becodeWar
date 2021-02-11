@@ -5,37 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>BecodeWAR</title>
 </head>
 <header>
 
 </header>
-
 <body>
     <div class="flexNav styleNav ">
         <div class="flexNav">Rules</div>
-        <div class="flexNav">Energie<div class="barreProgress ">
+            <div class="flexNav">Energie <i class="fas fa-battery-three-quarters"></i><div class="barreProgress ">
                 <div class="flexBarre">
                     <div class="barreProgress_Energy" id="barreProgress_Energy"><span id="statutEnergy"></span></div>
                 </div>
             </div>
         </div>
-        <div class="flexNav">Productivity<div class="barreProgress ">
+        <div class="flexNav">Productivity<i class="fas fa-fan"></i><div class="barreProgress ">
                 <div class="flexBarre">
                     <div class="barreProgress_Productivity" id="barreProgress_Productivity"><span
                             id="statutProductivity"></span></div>
                 </div>
             </div>
         </div>
-        <div class="flexNav">Créativity<div class="barreProgress ">
+        <div class="flexNav">Créativity<i class="fas fa-lightbulb"></i><div class="barreProgress ">
                 <div class="flexBarre">
                     <div class="barreProgress_Creativity" id="barreProgress_Creativity"><span
                             id="statutCreativity"></span></div>
                 </div>
             </div>
         </div>
-        <div class="flexNav">Backend<div class="barreProgress ">
+        <div class="flexNav">Backend<i class="fas fa-atom"></i><div class="barreProgress ">
                 <div class="flexBarre">
                     <div class="barreProgress_Backend" id="barreProgress_Backend"><span id="statutBackend"></span></div>
                 </div>
@@ -44,6 +43,7 @@
     </div>
     <div class="flexMain">
         <div class="box13 ">
+            <div class="colorRightBox">
             <p>Technologies</p>
             <div class="flexBarre">
                 <div class="flexColumn alignText">Energie <span id="EN">0</span>/sec</div>
@@ -84,7 +84,7 @@
                     </tr>
                     <tr>
                         <td>Ram</td>
-                        <td>500E + 500P</td>
+                        <td>500E + 500P +100C</td>
                         <td><button id="ram">Buy</button></td>
                     </tr>
                     <tr>
@@ -136,21 +136,10 @@
                     </tr>
                 </table>
             </div>
-                                    <!-- STOCK RESSOURCE -->
-            
-    
-
-
-
-
-
-
-
-
                             <!-- BULLE D'AIDE -->
         <div>Bulle d'aide<div id="bullAide"></div>
     </div>
-   
+</div>
         </div>
         
                     <!-- fin de la box de gauche -->
@@ -165,18 +154,22 @@
         <div>
             <div>
                 <div>Stock</div>
+                <div>lvl</div>
                 <div id="ENS">0</div>  
             </div>
             <div>
                 <div>Stock</div>
+                <div>lvl</div>
                 <div id="PRS">0</div>  
             </div>
             <div>
                 <div>Stock</div>
+                <div>lvl</div>
                 <div id="CRS">0</div>  
             </div>
             <div>
                 <div>Stock</div>
+                <div>lvl</div>
                 <div id="BES">0</div>  
             </div>
 
@@ -275,5 +268,5 @@
 </body>
 
 </html>
-<script src="ressourceJS.js"></script>
-<script src="map.js"></script>
+<script src="view\ressourceJS.js"></script>
+<script src="view\map.js"></script>

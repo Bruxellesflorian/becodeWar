@@ -23,20 +23,14 @@
 // PHP          = false => (0)
 // Python       = false => (0)
 
-let energy = 0,
-    lvlenergy = 1,
-    maxEnergy = 100;
-let productivity = 0,
-    lvlProductivity = 1,
-    maxProductivity = 100;
-let creativity = 0,
-    lvlcreativity = 0,
-    maxcreativity = 100;
-let backend = 0,
-    lvlbackend = 0,
-    maxbackend = 100;
-let stockEN = 0, stockPR = 0,stockCR = 0,stockBE = 0;   
+let posX = 0 , posY = 0;
+let energy = 0,         lvlenergy = 1,          maxEnergy = 100;
+let productivity = 0,   lvlProductivity = 1,    maxProductivity = 100;
+let creativity = 0,     lvlcreativity = 0,      maxcreativity = 100;
+let backend = 0,        lvlbackend = 0,         maxbackend = 100;
 
+// let stockEN = 0,stockPR = 0,stockCR = 0,stockBE = 0;   
+let totalEN = 0,totalPR = 0, totalCR = 0,totalBE = 0;
 
 
 const statutEnergy = document.getElementById("statutEnergy")
@@ -64,10 +58,6 @@ const BEAfficheStock = document.getElementById("BES")
 
 function ressPsecAffiche(x, y) {
     x.innerHTML = y
-}
-
-function lvlofressource(x) {
-    return 1 * x
 }
 
 function energyPlus(plus) {
@@ -111,10 +101,10 @@ function max(x, y) {
     }
 }
 let intervalRessource = setInterval(function () {
-    energyPlus(lvlofressource(lvlenergy))
-    productivityPlus(lvlofressource(lvlProductivity))
-    creativityPlus(lvlofressource(lvlcreativity))
-    backendPlus(lvlofressource(lvlbackend))
+    energyPlus(lvlenergy)
+    productivityPlus(lvlProductivity)
+    creativityPlus(lvlcreativity)
+    backendPlus(lvlbackend)
     barreEvolutionColor()
     statutEnergy.textContent = energy + "/" + maxEnergy
     statutProductivity.textContent = productivity + "/" + maxProductivity
@@ -129,10 +119,12 @@ let intervalRessource = setInterval(function () {
     ressPsecAffiche(CRAffichePS, lvlcreativity)
     ressPsecAffiche(BEAffichePS, lvlbackend)
 
-    ressPsecAffiche(ENAfficheStock, lvlbackend)
-    ressPsecAffiche(PRAfficheStock, lvlbackend)
-    ressPsecAffiche(CRAfficheStock, lvlbackend)
-    ressPsecAffiche(BEAfficheStock, lvlbackend)
+    afficheLvlStock()
+    ressPsecAffiche(ENAfficheStock, totalEN)
+    ressPsecAffiche(PRAfficheStock, totalPR)
+    ressPsecAffiche(CRAfficheStock, totalCR)
+    ressPsecAffiche(BEAfficheStock, totalBE)
+
 
 }, 10);
 
@@ -151,12 +143,15 @@ class ress {
 let buy_cafe = new ress(15, 0, 0, 0, 1, 0, 0, 0)
 let buy_cafetiere = new ress(60, 30, 0, 0, 1, 0, 0, 0)
 let buy_percolateur = new ress(300, 200, 0, 0, 1, 0, 0, 0)
+
 let buy_ecran = new ress(0, 60, 0, 0, 0, 1, 0, 0)
 let buy_ram = new ress(500, 500, 100, 0, 0, 1, 0, 0)
 let buy_IDE = new ress(1000, 1000, 500, 500, 0, 1, 0, 0)
+
 let buy_Figma = new ress(500, 300, 0, 0, 0, 0, 1, 0)
 let buy_Adobe = new ress(1000, 500, 500, 0, 0, 0, 1, 0)
 let buy_CSS = new ress(0, 0, 0, 0, 0, 0, 1, 0)
+
 let buy_node = new ress(0, 0, 0, 0, 0, 0, 0, 1)
 let buy_PHP = new ress(0, 0, 0, 0, 0, 0, 0, 1)
 let buy_Python = new ress(10, 0, 0, 0, 0, 0, 0, 1)
@@ -247,10 +242,10 @@ moveDeroul(bolBoxEnergy, energyBox, butDeroulEnergy)
 moveDeroul(bolBoxProductivity, productivityBox, butDeroulProductivity)
 moveDeroul(bolBoxCreativity, creativityBox, butDeroulCreativity)
 moveDeroul(bolBoxBackend, backendBox, butDeroulBackend)
-// moveDeroul(bolBoxStockEN, StockENBox, butDeroulStockEN)
-// moveDeroul(bolBoxStockPR, StockPRBox, butDeroulStockPR)
-// moveDeroul(bolBoxStockCR, StockCRBox, butDeroulStockCR)
-// moveDeroul(bolBoxStockBE, StockBEBox, butDeroulStockBE)
+moveDeroul(bolBoxStockEN, StockENBox, butDeroulStockEN)
+moveDeroul(bolBoxStockPR, StockPRBox, butDeroulStockPR)
+moveDeroul(bolBoxStockCR, StockCRBox, butDeroulStockCR)
+moveDeroul(bolBoxStockBE, StockBEBox, butDeroulStockBE)
  // __________________________________________________________________FAIRE UNE FUNCTION POUR LE LVL DES STOCK 
 const listDeroul = [{
     bouton: butDeroulEnergy,
@@ -592,12 +587,20 @@ for(let i =0; i<arrayMOD.length;i++){
     }
 }
 for(let i =0; i<arraySTOCK.length;i++){
-    //Permet d'avoir un update  a la connection du USER 
+    //Permet d'avoir un update des stock a la connection du USER 
     if(arraySTOCK[i].achat == 1){
         maxEnergy += arraySTOCK[i].apFu.StockNrj
         maxProductivity += arraySTOCK[i].apFu.stockProd
         maxcreativity += arraySTOCK[i].apFu.StockCrea
         maxbackend += arraySTOCK[i].apFu.stockBack
+    }
+}
+function afficheLvlStock(){
+    for(let i = 0; i < 2;i++){
+        totalEN = arraySTOCK[0].achat + arraySTOCK[1].achat + arraySTOCK[2].achat   
+        totalPR = arraySTOCK[3].achat + arraySTOCK[4].achat + arraySTOCK[5].achat   
+        totalCR = arraySTOCK[6].achat + arraySTOCK[7].achat + arraySTOCK[8].achat   
+        totalBE = arraySTOCK[9].achat + arraySTOCK[10].achat + arraySTOCK[11].achat   
     }
 }
 

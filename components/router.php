@@ -7,11 +7,12 @@ if (!isset($_SESSION['id'])) {
     include("./view/login.php");
 }
 } else {
-$page="mainPage";
+// $page="mainPage";
 
 if (!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
 include_once("./view/navbar.php");
-include_once('./view/' . $page . '.php');
+include_once("view\mainPage.html");
+// include_once('./view/' . $page . '.php');
 }
